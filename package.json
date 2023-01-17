@@ -1,3 +1,16 @@
 {
-  "name": "new-wetube"
+  "name": "new-wetube",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeonghun94/new-wetube.git"
+  },
+  "author": "jhun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeonghun94/new-wetube/issues"
+  },
+  "homepage": "https://github.com/jeonghun94/new-wetube#readme",
+  "description": ""
 }
