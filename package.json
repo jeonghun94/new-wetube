@@ -6,11 +6,23 @@
     "type": "git",
     "url": "git+https://github.com/jeonghun94/new-wetube.git"
   },
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  },
   "author": "jhun",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jeonghun94/new-wetube/issues"
   },
   "homepage": "https://github.com/jeonghun94/new-wetube#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "nodemon": "^2.0.20"
+  }
 }
