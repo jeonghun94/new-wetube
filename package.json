@@ -7,7 +7,7 @@
     "url": "git+https://github.com/jeonghun94/new-wetube.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "author": "jhun",
   "license": "MIT",
@@ -18,6 +18,7 @@
   "description": "",
   "dependencies": {
     "express": "^4.18.2",
+    "mongoose": "^6.9.0",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"
   },
