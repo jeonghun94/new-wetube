@@ -22,7 +22,7 @@
   &__button {
     width: 50%;
     height: 15px;
-    padding: 20px 0px;
+    padding: 10px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,12 +54,10 @@
       border-top-left-radius: 25px;
       border-bottom-left-radius: 25px;
       height: 100%;
-      border: 0;
       padding: 10px 20px;
       box-sizing: border-box;
       font-size: 1rem;
       border: 1px solid #c8c8c8;
-      color: white;
     }
 
     &__button {

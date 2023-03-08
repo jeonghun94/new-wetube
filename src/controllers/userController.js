@@ -5,6 +5,9 @@ export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
   const { name, username, email, password, password2, location } = req.body;
   const pageTitle = "Join";
+
+  console.log(req.body);
+
   if (password !== password2) {
     return res.status(400).render("join", {
       pageTitle,
@@ -12,6 +15,7 @@ export const postJoin = async (req, res) => {
     });
   }
   const exists = await User.exists({ $or: [{ username }, { email }] });
+  console.log(exists, "dsdss");
   if (exists) {
     return res.status(400).render("join", {
       pageTitle,
@@ -41,6 +45,7 @@ export const postLogin = async (req, res) => {
   const { username, password } = req.body;
   const pageTitle = "Login";
   const user = await User.findOne({ username });
+  console.log(user, "dsdsd");
   if (!user) {
     return res.status(400).render("login", {
       pageTitle,
@@ -59,7 +64,13 @@ export const postLogin = async (req, res) => {
   return res.redirect("/");
 };
 
+export const logout = (req, res) => {
+  console.log("logout");
+
+  req.session.destroy();
+  return res.redirect("/login");
+};
+
 export const edit = (req, res) => res.send("Edit User");
 export const remove = (req, res) => res.send("Remove User");
-export const logout = (req, res) => res.send("Log out");
 export const see = (req, res) => res.send("See User");

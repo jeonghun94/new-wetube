@@ -3,18 +3,21 @@ extends base
 
 
 block content
-    if errorMessage
-        span=errorMessage
+   
     form(method="POST").login__form
-        input(placeholder="Username", name="username", type="text", required)
-        input(placeholder="Password", name="password", type="password", required)
-        button login
+        input(placeholder="사용자명", name="username", type="text", required)
+        input(placeholder="비밀번호", name="password", type="password", required)
+        button 로그인
         .divides
             hr
             span or
             hr
         button.github login    
 
-    div
-        span Don't have an account? 
-        a(href="/join") Create one now &rarr;
+        div
+            span Don't have an account? 
+            a(href="/join") Create one now &rarr;
+    
+    if errorMessage
+        .error-container 
+            span=errorMessage

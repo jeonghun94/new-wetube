@@ -144,6 +144,11 @@ input {
   outline: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .header {
   width: 100%;
   height: 55px;
@@ -166,7 +171,7 @@ input {
 .header__button {
   width: 50%;
   height: 15px;
-  padding: 20px 0px;
+  padding: 10px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,12 +201,10 @@ input {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   height: 100%;
-  border: 0;
   padding: 10px 20px;
   box-sizing: border-box;
   font-size: 1rem;
   border: 1px solid #c8c8c8;
-  color: white;
 }
 .header .search-form__button {
   border-top-right-radius: 25px;
@@ -235,24 +238,24 @@ input {
 
 body {
   background-color: white;
-  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .login__form {
-  margin-top: 20px;
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
+  margin-top: 50px;
   box-sizing: border-box;
   padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #c8c8c8;
+  border: 1px solid #e0e0e0;
   flex-direction: column;
   gap: 8px;
   border-radius: 10px;
-  background-color: #2e2e2e;
+  background-color: whitesmoke;
 }
 .login__form input,
 .login__form button {
@@ -274,6 +277,19 @@ body {
   margin: 10px 0;
 }
 
+.github {
+  background-color: red;
+}
+
+.error-container {
+  max-width: inherit;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .divides {
   display: flex;
   justify-content: space-between;
@@ -281,4 +297,98 @@ body {
   width: 100%;
   padding: 10px;
   gap: 30px;
+}
+
+.dropbtn {
+  background-color: #ea2129;
+  color: white;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 100%;
+  font-size: 1rem;
+  border: none;
+  text-transform: uppercase;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  place-self: center end;
+  margin-right: 25px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: -15px;
+  min-width: 320px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content .menu__item {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  color: #222;
+  padding: 15px 20px;
+}
+.dropdown-content .profile {
+  display: flex;
+  padding: 15px;
+  gap: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  color: black;
+}
+.dropdown-content .profile__img {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: flex-start;
+}
+.dropdown-content .profile__img p {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 100%;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.dropdown-content .profile__info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dropdown-content .profile__info a {
+  margin: 0;
+  padding: 0;
+  color: #0066ff;
+}
+.dropdown-content .profile__info a:hover {
+  background-color: transparent;
+}
+
+.dropdown-content a {
+  color: black;
+  box-sizing: border-box;
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
