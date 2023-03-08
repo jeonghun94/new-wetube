@@ -1,7 +1,284 @@
+/*!**************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/_variables.scss ***!
+  \**************************************************************************************************************************/
+
 /*!**********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/client/scss/styles.scss ***!
   \**********************************************************************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
 body {
-  background-color: red;
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  outline: none;
+}
+
+.header {
+  width: 100%;
+  height: 55px;
   color: white;
+}
+.header__nav {
+  display: grid;
+  height: inherit;
+  grid-template-columns: 1fr 7fr 1fr;
+  gap: 20px;
+  padding: 0 20px;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.header__button {
+  width: 50%;
+  height: 15px;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3366ff;
+  place-self: center;
+  border: 1px solid #c8c8c8;
+  border-radius: 25px;
+  background-color: white;
+  cursor: pointer;
+}
+.header__button:hover {
+  opacity: 0.8;
+}
+.header .search-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  box-sizing: border-box;
+}
+.header .search-form__input {
+  min-width: 500px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  height: 100%;
+  border: 0;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border: 1px solid #c8c8c8;
+  color: white;
+}
+.header .search-form__button {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  height: 100%;
+  border: 0;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border: 1px solid #c8c8c8;
+  border-left: 0;
+  background-color: whitesmoke;
+  color: #666;
+  cursor: pointer;
+}
+.header .search-form .login-form {
+  padding: 10px;
+  place-self: center;
+  background-color: #2e2e2e;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+  color: blue;
+}
+.header .search-form .login-form__button {
+  background-color: #232323;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+body {
+  background-color: white;
+  color: white;
+}
+
+.login__form {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c8c8c8;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 10px;
+  background-color: #2e2e2e;
+}
+.login__form input,
+.login__form button {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 15px;
+  border: 0;
+  font-size: 1rem;
+}
+.login__form button {
+  background-color: #232323;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.login__form hr {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.divides {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  gap: 30px;
 }

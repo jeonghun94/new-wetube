@@ -5,11 +5,16 @@ extends base
 block content
     if errorMessage
         span=errorMessage
-    form(method="POST")
+    form(method="POST").login__form
         input(placeholder="Username", name="username", type="text", required)
         input(placeholder="Password", name="password", type="password", required)
-        input(type="submit", value="Login")
-    hr
+        button login
+        .divides
+            hr
+            span or
+            hr
+        button.github login    
+
     div
         span Don't have an account? 
         a(href="/join") Create one now &rarr;

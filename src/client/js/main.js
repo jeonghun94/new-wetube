@@ -1,2 +1,2 @@
+import "../scss/_variables.scss";
 import "../scss/styles.scss";
-alert("it works");

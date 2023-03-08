@@ -1,4 +1,56 @@
+@import "./_variables.scss";
+@import "./reset.scss";
+@import "./header.scss";
+
 body {
-  background-color: red;
+  background-color: $black;
   color: white;
+}
+
+.login__form {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c8c8c8;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 10px;
+  background-color: #2e2e2e;
+
+  & input,
+  button {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 15px;
+    border: 0;
+    font-size: 1rem;
+  }
+
+  & button {
+    background-color: #232323;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  & hr {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.divides {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  gap: 30px;
 }
