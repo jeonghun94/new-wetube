@@ -5,6 +5,7 @@ import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
 import { localsMiddleware } from "./middlewares";
+import flash from "express-flash";
 
 const app = express();
 const logger = morgan("dev");
@@ -22,8 +23,9 @@ app.use(
     // store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/wetube" }),
   })
 );
-
+app.use(flash());
 app.use(localsMiddleware);
+app.use("/uploads/avatar", express.static("uploads/avatar"));
 app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);

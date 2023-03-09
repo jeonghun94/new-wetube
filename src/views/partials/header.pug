@@ -13,11 +13,17 @@ header.header
 
             if loggedIn
                 .dropdown
-                    button(style=`background-color:${loggedInUser ? loggedInUser.colorCode :"red"}`).dropbtn #{loggedInUser.username.charAt(1)}
+                    if loggedInUser && loggedInUser.avatarUrl
+                        img(src=`/${loggedInUser.avatarUrl}` alt=`${loggedInUser.username}`)
+                    else
+                        button(style=`background-color:${loggedInUser ? loggedInUser.colorCode :"red"}`).dropbtn #{loggedInUser.username.charAt(1)}
                     .dropdown-content
                         .profile 
                             .profile__img
-                                p(style=`background-color:${loggedInUser ? loggedInUser.colorCode :"red"}`) #{loggedInUser.username.charAt(1)}
+                                if loggedInUser && loggedInUser.avatarUrl
+                                    img(src=`/${loggedInUser.avatarUrl}` alt=`${loggedInUser.username}`)
+                                else
+                                    p(style=`background-color:${loggedInUser ? loggedInUser.colorCode :"red"}`) #{loggedInUser.username.charAt(1)}
                             .profile__info
                                 span.profile__name #{loggedInUser.username}
                                 span.profile__email #{loggedInUser.email}
@@ -26,6 +32,9 @@ header.header
                             a(href="").menu__item
                                 i.fas.fa-moon
                                 span.menu__item-text 디자인: 어두운 테마
+                            a(href="/change-password").menu__item
+                                i.fas.fa-lock
+                                span.menu__item-text 패스워드 변경
                             a(href="/logout").menu__item
                                 i.fas.fa-sign-out-alt
                                 span.menu__item-text 로그아웃

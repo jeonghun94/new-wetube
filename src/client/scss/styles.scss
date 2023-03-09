@@ -8,8 +8,54 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+@keyframes goAway {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+.message {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 200px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-align: center;
+  animation: goAway 0.5s ease-in-out forwards;
+  animation-delay: 5s;
+  &.error {
+    background-color: tomato;
+    color: white;
+  }
+  &.success {
+    background-color: #00b300;
+    color: white;
+  }
+  &.info {
+    background-color: #00b3b3;
+    color: white;
+  }
+  &.warning {
+    background-color: #ffcc00;
+    color: white;
+  }
+}
+
+input[type="file"] {
+  background-color: white;
+}
+
 .login__form {
   width: 100%;
+  height: 400px !important;
   max-width: 480px;
   margin: 0 auto;
   margin-top: 50px;
@@ -22,7 +68,7 @@ body {
   flex-direction: column;
   gap: 8px;
   border-radius: 10px;
-  background-color: whitesmoke;
+  background-color: #fafafa;
 
   & input,
   button {
@@ -34,8 +80,12 @@ body {
     font-size: 1rem;
   }
 
+  & input {
+    border: 1px solid #e0e0e0;
+  }
+
   & button {
-    background-color: #232323;
+    background-color: #ff0000;
     color: white;
     cursor: pointer;
     margin-top: 10px;
@@ -45,10 +95,30 @@ body {
     width: 100%;
     margin: 10px 0;
   }
+
+  .github {
+    margin-top: -5px;
+    background-color: #232323 !important;
+    i {
+      padding-left: 10px;
+    }
+  }
 }
 
-.github {
-  background-color: red;
+.join {
+  gap: 10px;
+  color: #222;
+  font-size: 0.9rem;
+  margin-top: 10px;
+
+  a {
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  &__form {
+    height: 533px !important;
+  }
 }
 
 .error-container {
@@ -86,6 +156,12 @@ body {
   display: inline-block;
   place-self: center end;
   margin-right: 25px;
+
+  & img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+  }
 }
 
 .dropdown-content {
@@ -118,6 +194,12 @@ body {
       width: 40px;
       height: 40px;
       align-items: flex-start;
+
+      & img {
+        width: inherit;
+        height: inherit;
+        border-radius: 100%;
+      }
 
       p {
         width: inherit;
@@ -284,7 +366,11 @@ section {
         justify-content: center;
         padding: 0px 10px;
         // border: 1px solid blue;
-
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+        }
         p {
           width: 30px;
           height: 30px;

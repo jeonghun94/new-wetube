@@ -5,18 +5,20 @@ extends base
 block content
    
     form(method="POST").login__form
-        input(placeholder="사용자명", name="username", type="text", required)
+        input(placeholder="사용자명", name="username", type="text", required autofocus)
         input(placeholder="비밀번호", name="password", type="password", required)
         button 로그인
         .divides
             hr
             span or
             hr
-        button.github login    
+        button.github 
+            i.fa.fa-github 
+                span 깃허브 로그인
 
-        div
-            span Don't have an account? 
-            a(href="/join") Create one now &rarr;
+        .join
+            span 계정이 없으신가요?	
+            a(href="/join") 회원가입 &rarr;
     
     if errorMessage
         .error-container 

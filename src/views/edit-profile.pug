@@ -1,0 +1,12 @@
+extends base.pug
+
+block content
+    form(method="POST" enctype="multipart/form-data").login__form
+        input(placeholder="이름" name="name" type="text" value=`${loggedInUser.name}` required)
+        input(placeholder="지역" name="location" type="text" value=`${loggedInUser.location}` required)
+        input(placeholder="사진" name="avatar" type="file" accept="image/*")
+        button 수정하기
+
+    if errorMessage
+        .error-container 
+            span=errorMessage

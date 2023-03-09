@@ -241,8 +241,53 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+@keyframes goAway {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+.message {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 200px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-align: center;
+  animation: goAway 0.5s ease-in-out forwards;
+  animation-delay: 5s;
+}
+.message.error {
+  background-color: tomato;
+  color: white;
+}
+.message.success {
+  background-color: #00b300;
+  color: white;
+}
+.message.info {
+  background-color: #00b3b3;
+  color: white;
+}
+.message.warning {
+  background-color: #ffcc00;
+  color: white;
+}
+
+input[type=file] {
+  background-color: white;
+}
+
 .login__form {
   width: 100%;
+  height: 400px !important;
   max-width: 480px;
   margin: 0 auto;
   margin-top: 50px;
@@ -255,7 +300,7 @@ body {
   flex-direction: column;
   gap: 8px;
   border-radius: 10px;
-  background-color: whitesmoke;
+  background-color: #fafafa;
 }
 .login__form input,
 .login__form button {
@@ -266,8 +311,11 @@ body {
   border: 0;
   font-size: 1rem;
 }
+.login__form input {
+  border: 1px solid #e0e0e0;
+}
 .login__form button {
-  background-color: #232323;
+  background-color: #ff0000;
   color: white;
   cursor: pointer;
   margin-top: 10px;
@@ -276,9 +324,26 @@ body {
   width: 100%;
   margin: 10px 0;
 }
+.login__form .github {
+  margin-top: -5px;
+  background-color: #232323 !important;
+}
+.login__form .github i {
+  padding-left: 10px;
+}
 
-.github {
-  background-color: red;
+.join {
+  gap: 10px;
+  color: #222;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+.join a {
+  text-decoration: underline;
+  font-weight: 600;
+}
+.join__form {
+  height: 533px !important;
 }
 
 .error-container {
@@ -318,6 +383,11 @@ body {
   place-self: center end;
   margin-right: 25px;
 }
+.dropdown img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
 
 .dropdown-content {
   display: none;
@@ -348,6 +418,11 @@ body {
   width: 40px;
   height: 40px;
   align-items: flex-start;
+}
+.dropdown-content .profile__img img {
+  width: inherit;
+  height: inherit;
+  border-radius: 100%;
 }
 .dropdown-content .profile__img p {
   width: inherit;
@@ -498,6 +573,11 @@ section {
   align-items: flex-start;
   justify-content: center;
   padding: 0px 10px;
+}
+.videos-container .video-info__user img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
 }
 .videos-container .video-info__user p {
   width: 30px;
