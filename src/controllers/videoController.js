@@ -1,9 +1,60 @@
 import Video from "../models/Video";
 import User from "../models/User";
 
+const getHashtags = async () => {
+  const hashtags = [];
+  const videos = await Video.find();
+
+  videos.forEach((video) => {
+    video.hashtags.forEach((hashtag) => {
+      if (!hashtags.includes(hashtag)) {
+        hashtags.push(hashtag);
+      }
+    });
+  });
+  return hashtags;
+};
+
 export const home = async (req, res) => {
-  const videos = await Video.find({});
-  return res.render("home", { pageTitle: "Home", videos });
+  const hashtags = await getHashtags();
+  const videos = await Video.find()
+    .sort({ createdAt: "desc" })
+    .populate("owner");
+
+  return res.render("home", { pageTitle: "Home", videos, hashtags });
+};
+
+export const search = async (req, res) => {
+  const hashtags = await getHashtags();
+  const { title, hashtag } = req.query;
+  let videos = [];
+
+  console.log(title, "title");
+
+  const regex = (pattern) => new RegExp(`.*${pattern}.*`);
+  const titleRegex = regex(title); // .*토끼.*
+
+  if (title) {
+    videos = await Video.find({
+      title: {
+        $regex: titleRegex,
+      },
+    });
+  } else if (hashtag) {
+    videos = await Video.find({
+      hashtags: {
+        $regex: new RegExp(`${hashtag}$`, "i"),
+      },
+    });
+  }
+
+  return res.render("home", {
+    pageTitle: "Search",
+    videos,
+    hashtags,
+    searchBy: title || hashtag,
+    searchByTitle: title,
+  });
 };
 
 export const watch = async (req, res) => {
@@ -53,6 +104,7 @@ export const postUpload = async (req, res) => {
       title,
       description,
       hashtags: Video.formatHashtags(hashtags),
+      owner: req.session.user._id,
     });
     return res.redirect("/");
   } catch (error) {
@@ -67,17 +119,4 @@ export const deleteVideo = async (req, res) => {
   const { id } = req.params;
   await Video.findByIdAndDelete(id);
   return res.redirect("/");
-};
-
-export const search = async (req, res) => {
-  const { keyword } = req.query;
-  let videos = [];
-  if (keyword) {
-    videos = await Video.find({
-      title: {
-        $regex: new RegExp(`${keyword}$`, "i"),
-      },
-    });
-  }
-  return res.render("search", { pageTitle: "Search", videos });
 };

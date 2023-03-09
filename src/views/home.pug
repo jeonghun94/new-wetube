@@ -2,8 +2,23 @@ extends base
 include mixins/video
 
 block content
-    h2 Welcome here you will see the trending videos
-    each video in videos
-        +video(video)
-    else
-        li Sorry nothing found.
+    aside.aside 
+        .aside-menu
+            i.fas.fa-home
+            a(href="http://localhost:") 홈 
+        .aside-menu
+            i.fab.fa-youtube
+            a(href="http://localhost:") 구독          
+    section 
+        .hashtags
+            a(href=`/` class=`${searchBy ? "":"active"}`) 전체
+            for hashtag in hashtags
+                a(href=`/videos/search?hashtag=${hashtag.replace("#", "")}` class=`${searchBy && searchBy === hashtag.replace("#","") ? "active" :""}`) #{hashtag.replace("#","").replace(" ","")}
+            else
+                h1 Sorry nothing found.
+
+        .videos-container
+            each video in videos
+                +video(video)
+            else
+                p 검색 결과가 없습니다.

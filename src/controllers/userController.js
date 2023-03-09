@@ -1,7 +1,8 @@
 import User from "../models/User";
 import bcrypt from "bcrypt";
 
-export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
+export const getJoin = (req, res) =>
+  res.render("join", { pageTitle: "Join", noSearchBar: true });
 export const postJoin = async (req, res) => {
   const { name, username, email, password, password2, location } = req.body;
   const pageTitle = "Join";
@@ -28,6 +29,7 @@ export const postJoin = async (req, res) => {
       username,
       email,
       password,
+      colorCode: "#" + Math.round(Math.random() * 0xffffff).toString(16),
       location,
     });
     return res.redirect("/login");
@@ -39,7 +41,7 @@ export const postJoin = async (req, res) => {
   }
 };
 export const getLogin = (req, res) =>
-  res.render("login", { pageTitle: "Login" });
+  res.render("login", { pageTitle: "Login", noSearchBar: true });
 
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
