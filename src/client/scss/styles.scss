@@ -403,3 +403,219 @@ section {
     }
   }
 }
+
+.video-detail {
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 90%;
+
+  &__video {
+    width: 100%;
+    height: 80%;
+    background-color: #eee;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    width: 100%;
+    height: auto;
+    padding: 15px 3px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & div:first-child {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      font-size: 1.2rem;
+      h1 {
+        font-weight: 600;
+      }
+
+      h3 {
+        font-weight: 400;
+        font-size: 0.8rem;
+        color: #666;
+      }
+    }
+
+    & div:last-child {
+      button {
+        background-color: #ff0000;
+        border-radius: 30px;
+        border: none;
+        padding: 10px;
+        color: white;
+
+        span {
+          font-size: 1rem;
+          color: #fff;
+        }
+
+        &:hover {
+          background-color: #ff3333;
+        }
+      }
+    }
+  }
+
+  &__user {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    & div:first-child {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      font-size: 1.2rem;
+
+      img,
+      p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+      }
+    }
+
+    & div:last-child {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      // margin-top: -20px;
+      gap: 25px;
+
+      h1 {
+        font-weight: 600;
+        font-size: 1rem;
+        color: black;
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+
+        a {
+          color: #222;
+          background-color: #eee;
+          text-decoration: none;
+          font-size: 0.9rem;
+          padding: 10px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            background-color: black;
+            color: white;
+          }
+
+          &.active {
+            background-color: #666;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  &__comment-section {
+    padding: 20px 0;
+
+    &__text {
+      h1 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__comment {
+      width: 100%;
+      height: auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+
+      &-avatar {
+        width: 40px;
+        height: 40px;
+
+        img,
+        p {
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+        }
+      }
+
+      &-form {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        textarea {
+          width: 100%;
+          height: 200px;
+          border: 1px solid #eee;
+          border-radius: 10px;
+          padding: 10px;
+          box-sizing: border-box;
+          font-size: 1rem;
+          resize: none;
+        }
+
+        button {
+          width: 100px;
+          height: 40px;
+          border: none;
+          border-radius: 5px;
+          background-color: #ff0000;
+          color: white;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          padding: 10px;
+          &:hover {
+            background-color: #ff3333;
+          }
+        }
+      }
+    }
+  }
+}

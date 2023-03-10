@@ -1,10 +1,45 @@
 extends base
 
 block content
-    h3 #{video.views} #{video.views === 1 ? "view" : "views"}
-    div
-        p=video.description
-        small=video.createdAt
-    a(href=`${video.id}/edit`) Edit Video &rarr;
-    br
-    a(href=`${video.id}/delete`) Delete Video &rarr;
+    .video-detail
+        .video-detail__video
+            video(src=`/${video.videoUrl}` controls)
+        .video-detail__info    
+            div
+                h1=video.title
+                h3 #{video.meta.views} #{video.meta.views === 1 ? "view" : "views"} &middot; #{video.createdAt.toLocaleDateString()}
+            div 
+                button 
+                    if user && user.subscriptions.includes(video.owner._id)
+                        span Unsubscribe
+                    else
+                        span Subscribe
+        .video-detail__user
+            div 
+                if video.owner && video.owner.avatarUrl
+                    img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
+                else
+                    p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
+            div
+                h1=video.owner.avatarUrl ? video.owner.username : "Anonymous"
+                p=video.description
+                .video-detail__user__hashtags 
+                    for hastag in video.hashtags
+                        a(href=`#`)=hastag.replace("#","")
+        .video-detail__comment-section
+            .video-detail__comment-section__text
+                h1 Comments
+                //- if user
+            .video-detail__comment-section__comment
+                .video-detail__comment-section__comment-avatar
+                    if video.owner && video.owner.avatarUrl
+                        img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
+                    else
+                        p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
+                
+                form(action=`/videos/${video.id}/comment` method=`POST`).video-detail__comment-section__comment-form
+                    textarea(name="", cols="50", rows="30" placeholder=`댓글을 입력하세요.`)
+                    button comment
+        //- a(href=`${video.id}/edit`) Edit Video &rarr;
+        //- br
+        //- a(href=`${video.id}/delete`) Delete Video &rarr;

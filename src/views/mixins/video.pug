@@ -1,14 +1,15 @@
 mixin video(video)
-    .video
-        .video__img
-        .video-info
-            .video-info__user
-                if video.owner && video.owner.avatarUrl
-                    img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
-                else
-                    p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner? video.owner.username.charAt(0) : "A"}
-            .video-info__video
-                h1=video.title.length > 50 ? video.title.slice(0, 50) + "..." : video.title
-                h3=video.owner ? video.owner.username : "Anonymous" 
-                h3=`조회수 ${video.meta.views} • ${video.createdAt.toLocaleDateString()}` 
-            hr
+    a(href=`/videos/${video.id}`).video-mixin
+        .video
+            .video__img
+            .video-info
+                .video-info__user
+                    if video.owner && video.owner.avatarUrl
+                        img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
+                    else
+                        p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
+                .video-info__video
+                    h1=video.title.length > 50 ? video.title.slice(0, 50) + "..." : video.title
+                    h3=video.owner ? video.owner.username : "Anonymous" 
+                    h3=`조회수 ${video.meta.views} • ${video.createdAt.toLocaleDateString()}` 
+                hr

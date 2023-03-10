@@ -39,13 +39,17 @@ export const search = async (req, res) => {
       title: {
         $regex: titleRegex,
       },
-    });
+    })
+      .sort({ createdAt: "desc" })
+      .populate("owner");
   } else if (hashtag) {
     videos = await Video.find({
       hashtags: {
         $regex: new RegExp(`${hashtag}$`, "i"),
       },
-    });
+    })
+      .sort({ createdAt: "desc" })
+      .populate("owner");
   }
 
   return res.render("home", {

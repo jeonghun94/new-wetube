@@ -605,3 +605,189 @@ section {
   font-size: 0.9rem;
   color: #666;
 }
+
+.video-detail {
+  max-width: 1160px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 90%;
+}
+.video-detail__video {
+  width: 100%;
+  height: 80%;
+  background-color: #eee;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.video-detail__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-detail__info {
+  width: 100%;
+  height: auto;
+  padding: 15px 3px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.video-detail__info div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 1.2rem;
+}
+.video-detail__info div:first-child h1 {
+  font-weight: 600;
+}
+.video-detail__info div:first-child h3 {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #666;
+}
+.video-detail__info div:last-child button {
+  background-color: #ff0000;
+  border-radius: 30px;
+  border: none;
+  padding: 10px;
+  color: white;
+}
+.video-detail__info div:last-child button span {
+  font-size: 1rem;
+  color: #fff;
+}
+.video-detail__info div:last-child button:hover {
+  background-color: #ff3333;
+}
+.video-detail__user {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.video-detail__user div:first-child {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  font-size: 1.2rem;
+}
+.video-detail__user div:first-child img,
+.video-detail__user div:first-child p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+.video-detail__user div:last-child {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 25px;
+}
+.video-detail__user div:last-child h1 {
+  font-weight: 600;
+  font-size: 1rem;
+  color: black;
+}
+.video-detail__user div:last-child div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.video-detail__user div:last-child div a {
+  color: #222;
+  background-color: #eee;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.video-detail__user div:last-child div a:hover {
+  background-color: black;
+  color: white;
+}
+.video-detail__user div:last-child div a.active {
+  background-color: #666;
+  color: white;
+}
+.video-detail__comment-section {
+  padding: 20px 0;
+}
+.video-detail__comment-section__text h1 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.video-detail__comment-section__comment {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.video-detail__comment-section__comment-avatar {
+  width: 40px;
+  height: 40px;
+}
+.video-detail__comment-section__comment-avatar img,
+.video-detail__comment-section__comment-avatar p {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.video-detail__comment-section__comment-form {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.video-detail__comment-section__comment-form textarea {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  resize: none;
+}
+.video-detail__comment-section__comment-form button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff0000;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  padding: 10px;
+}
+.video-detail__comment-section__comment-form button:hover {
+  background-color: #ff3333;
+}
