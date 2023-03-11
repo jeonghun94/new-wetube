@@ -3,12 +3,12 @@ include mixins/video
 
 block content
     aside.aside 
-        .aside-menu
+        a(href="/").aside-menu
             i.fas.fa-home
-            a(href="http://localhost:") 홈 
-        .aside-menu
-            i.fab.fa-youtube
-            a(href="http://localhost:") 구독          
+                span 홈 
+        //- .aside-menu
+        //-     i.fab.fa-youtube
+        //-     a(href="http://localhost:") 구독          
     section 
         .hashtags
             a(href=`/` class=`${searchBy ? "":"active"}`) 전체

@@ -4,7 +4,6 @@ const psBtn = videoController.querySelector("#playPauseBtn");
 const volumeBtn = videoController.querySelector("#volume");
 const volumeRange = videoController.querySelector("#volumeRange");
 
-//my code
 const currentTime = document.querySelector("#currentTime");
 const totalTime = document.querySelector("#totalTime");
 const timeLine = document.querySelector("#timeLine");
@@ -52,10 +51,7 @@ const handleVolume = (event) => {
   video.volume = volumeValue = value;
 };
 
-// my code
-
 const timeFormat = (time) => new Date(time * 1000).toISOString().slice(14, -5);
-
 const handleCurrentTime = () => {
   currentTime.innerHTML = timeFormat(Math.floor(video.currentTime));
   timeLine.value = Math.floor(video.currentTime);

@@ -1,6 +1,7 @@
-import Video from "../models/Video";
 import Comment from "../models/Comment";
+import Video from "../models/Video";
 import User from "../models/User";
+import { async } from "regenerator-runtime";
 
 const getHashtags = async () => {
   const hashtags = [];
@@ -33,7 +34,7 @@ export const search = async (req, res) => {
   console.log(title, "title");
 
   const regex = (pattern) => new RegExp(`.*${pattern}.*`);
-  const titleRegex = regex(title); // .*토끼.*
+  const titleRegex = regex(title);
 
   if (title) {
     videos = await Video.find({
@@ -65,7 +66,6 @@ export const search = async (req, res) => {
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id).populate("owner").populate("comments");
-  console.log(video, "dsdasd");
 
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
@@ -150,6 +150,7 @@ export const createComment = async (req, res) => {
     body: { text },
     params: { id },
   } = req;
+
   const video = await Video.findById(id);
   if (!video) {
     return res.sendStatus(404);
@@ -176,11 +177,9 @@ export const deleteComment = async (req, res) => {
 
   const comment = await Comment.findById(commentId).populate("owner");
   const videoId = comment.video;
-  if (String(_id) !== String(comment.owner._id)) {
-    return res.sendStatus(404);
-  }
+
   const video = await Video.findById(videoId);
-  if (!video) {
+  if (!video || _id + "" !== comment.owner._id + "") {
     return res.sendStatus(404);
   }
 

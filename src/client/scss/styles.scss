@@ -266,7 +266,6 @@ section {
   height: 100%;
   padding: 15px 5px;
   box-sizing: border-box;
-
   &-menu {
     width: 100%;
     display: flex;
@@ -279,6 +278,12 @@ section {
 
     i {
       font-size: 1.2rem;
+    }
+
+    span {
+      font-weight: 600;
+      margin-left: 45px;
+      font-size: 1rem;
     }
 
     &:hover {
@@ -625,15 +630,21 @@ section {
 .video__comments {
   display: flex;
   flex-direction: column;
-  max-width: 320px;
+  // max-width: 320px;
   width: 100%;
   margin: 0 auto;
   margin-top: 20px;
   .video__comment {
-    padding: 10px;
-    border-radius: 9999px;
-    background-color: white;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    // border: 1px solid #eee;
+    background-color: #fafafa;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
     color: black;
     margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
   }
 }
