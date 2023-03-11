@@ -1,9 +1,11 @@
 extends base
 
 block content
-    .video-detail
+    .video-detail#videoController(data-id=video._id)
         .video-detail__video
-            video(src=`/${video.videoUrl}` controls)
+            video(src=`/${video.fileUrl}`)
+        include ./partials/videoPlayer.pug
+
         .video-detail__info    
             div
                 h1=video.title
@@ -29,17 +31,31 @@ block content
         .video-detail__comment-section
             .video-detail__comment-section__text
                 h1 Comments
-                //- if user
-            .video-detail__comment-section__comment
-                .video-detail__comment-section__comment-avatar
-                    if video.owner && video.owner.avatarUrl
-                        img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
-                    else
-                        p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
-                
-                form(action=`/videos/${video.id}/comment` method=`POST`).video-detail__comment-section__comment-form
-                    textarea(name="", cols="50", rows="30" placeholder=`댓글을 입력하세요.`)
-                    button comment
+            if loggedIn
+                .video-detail__comment-section__comment
+                    .video-detail__comment-section__comment-avatar
+                        if video.owner && video.owner.avatarUrl
+                            img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
+                        else
+                            p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
+                    
+                    form(action=`/videos/${video.id}/comment` method=`POST` id="commentForm").video-detail__comment-section__comment-form
+                        textarea(name="", cols="30", rows="10" placeholder=`댓글을 입력하세요.`)
+                        button comment
+            div.video__comments
+                ul
+                    each comment in video.comments.reverse()
+                        li.video__comment(data-id=comment.id)
+                            i.fas.fa-comment
+                            span #{comment.text}
+
+                            if loggedIn
+                                if comment.owner._id+"" === loggedInUser._id+""
+                                    span ❌
+block scripts
+    script(src="/static/js/videoPlayer.js")
+    if loggedIn
+        script(src="/static/js/comment.js") 
         //- a(href=`${video.id}/edit`) Edit Video &rarr;
         //- br
         //- a(href=`${video.id}/delete`) Delete Video &rarr;

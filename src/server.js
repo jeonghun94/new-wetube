@@ -6,6 +6,7 @@ import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
 import { localsMiddleware } from "./middlewares";
 import flash from "express-flash";
+import apiRouter from "./routers/apiRouter";
 
 const app = express();
 const logger = morgan("dev");
@@ -14,7 +15,7 @@ app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.json());
 app.use(
   session({
     secret: "Hello!",
@@ -25,10 +26,12 @@ app.use(
 );
 app.use(flash());
 app.use(localsMiddleware);
-app.use("/uploads/avatar", express.static("uploads/avatar"));
+app.use("/uploads/avatars", express.static("uploads/avatars"));
+app.use("/uploads/videos", express.static("uploads/videos"));
 app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
+app.use("/api", apiRouter);
 
 export default app;

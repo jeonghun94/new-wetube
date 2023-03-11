@@ -1,0 +1,67 @@
+.video-controller {
+  opacity: 1;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: -63px;
+  padding-top: 10px;
+  background-color: transparent;
+  color: white;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease-in-out;
+
+  i {
+    cursor: pointer;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    height: 5px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    outline: none;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+  }
+}
+
+.video-controller__time-line {
+  width: 100%;
+  box-sizing: border-box;
+  input[type="range"] {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: transparent;
+  }
+}
+
+.video-controller:hover {
+  opacity: 1;
+}
+
+.video-controller__time {
+  width: 120px;
+  text-align: center;
+}
+
+.video-controller__buttons {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 10px;
+
+  &-play {
+    width: auto;
+    display: flex;
+    gap: 20px;
+  }
+}

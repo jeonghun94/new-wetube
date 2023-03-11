@@ -12,4 +12,3 @@ mixin video(video)
                     h1=video.title.length > 50 ? video.title.slice(0, 50) + "..." : video.title
                     h3=video.owner ? video.owner.username : "Anonymous" 
                     h3=`조회수 ${video.meta.views} • ${video.createdAt.toLocaleDateString()}` 
-                hr

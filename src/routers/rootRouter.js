@@ -14,7 +14,7 @@ import { home, search } from "../controllers/videoController";
 import {
   protectorMiddleware,
   publicOnlyMiddleware,
-  uploadAvatarFiles,
+  uploadAvatar,
 } from "../middlewares";
 const rootRouter = express.Router();
 
@@ -29,7 +29,7 @@ rootRouter
   .route("/edit-profile")
   .all(protectorMiddleware)
   .get(getEditProfile)
-  .post(uploadAvatarFiles.single("avatar"), postEditProfile);
+  .post(uploadAvatar.single("avatar"), postEditProfile);
 rootRouter
   .route("/change-password")
   .all(protectorMiddleware)

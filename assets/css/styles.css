@@ -236,6 +236,71 @@ a {
   margin-top: 10px;
 }
 
+.video-controller {
+  opacity: 1;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: -63px;
+  padding-top: 10px;
+  background-color: transparent;
+  color: white;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease-in-out;
+}
+.video-controller i {
+  cursor: pointer;
+}
+.video-controller input[type=range] {
+  width: 100%;
+  height: 5px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.video-controller__time-line {
+  width: 100%;
+  box-sizing: border-box;
+}
+.video-controller__time-line input[type=range] {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+.video-controller:hover {
+  opacity: 1;
+}
+
+.video-controller__time {
+  width: 120px;
+  text-align: center;
+}
+
+.video-controller__buttons {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 10px;
+}
+.video-controller__buttons-play {
+  width: auto;
+  display: flex;
+  gap: 20px;
+}
+
 body {
   background-color: white;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -612,6 +677,7 @@ section {
   margin: 0 auto;
   margin-top: 30px;
   height: 90%;
+  position: relative;
 }
 .video-detail__video {
   width: 100%;
@@ -768,13 +834,13 @@ section {
 }
 .video-detail__comment-section__comment-form textarea {
   width: 100%;
-  height: 200px;
   border: 1px solid #eee;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
   font-size: 1rem;
   resize: none;
+  outline: none;
 }
 .video-detail__comment-section__comment-form button {
   width: 100px;
@@ -790,4 +856,20 @@ section {
 }
 .video-detail__comment-section__comment-form button:hover {
   background-color: #ff3333;
+}
+
+.video__comments {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.video__comments .video__comment {
+  padding: 10px;
+  border-radius: 9999px;
+  background-color: white;
+  color: black;
+  margin-bottom: 10px;
 }

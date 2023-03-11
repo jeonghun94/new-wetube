@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema({
   colorCode: { type: String, required: true, default: "#000000" },
   avatarUrl: String,
   location: String,
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  videos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Video" }],
 });
 
 userSchema.pre("save", async function () {
