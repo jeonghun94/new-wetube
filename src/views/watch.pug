@@ -15,11 +15,11 @@ block content
                 h1=video.title
                 h3 #{video.meta.views} #{video.meta.views === 1 ? "view" : "views"} &middot; #{video.createdAt.toLocaleDateString()}
             div 
-                button 
-                    if user && user.subscriptions.includes(video.owner._id)
-                        span Unsubscribe
-                    else
-                        span Subscribe
+                if String(video.owner._id) === String(loggedInUser._id)
+                    a(href=`${video.id}/edit`) 
+                        i.fas.fa-edit
+                    a(href=`${video.id}/delete`) 
+                        i.fas.fa-trash
         .video-detail__user
             div 
                 if video.owner && video.owner.avatarUrl
@@ -46,10 +46,6 @@ block content
                     form(action=`/videos/${video.id}/comment` method=`POST` id="commentForm").video-detail__comment-section__comment-form
                         textarea(name="", cols="30", rows="10" placeholder=`댓글을 입력하세요.`)
                         button comment
-                if String(video.owner._id) === String(loggedInUser._id)
-                    a(href=`${video.id}/edit`) Edit Video &rarr;
-                    br
-                    a(href=`${video.id}/delete`) Delete Video &rarr;
             div.video__comments
                 ul
                     each comment in video.comments.reverse()

@@ -3,8 +3,8 @@ extends base
 
 
 block content
-   
     form(method="POST").login__form
+        h1 로그인
         input(placeholder="사용자명", name="username", type="text", required autofocus)
         input(placeholder="비밀번호", name="password", type="password", required)
         button 로그인
@@ -20,6 +20,6 @@ block content
             span 계정이 없으신가요?	
             a(href="/join") 회원가입 &rarr;
     
-    if errorMessage
-        .error-container 
-            span=errorMessage
+        if errorMessage
+            .error-container 
+                span=errorMessage
