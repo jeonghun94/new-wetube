@@ -38,10 +38,10 @@ block content
             if loggedIn
                 .video-detail__comment-section__comment
                     .video-detail__comment-section__comment-avatar
-                        if video.owner && video.owner.avatarUrl
-                            img(src=`${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
+                        if loggedInUser.avatarUrl
+                            img(src=`${loggedInUser.avatarUrl}` alt=`${loggedInUser.avatarUrl}의 프로필 사진`)
                         else
-                            p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
+                            p(style=`background-color:${loggedInUser.colorCode}`) #{loggedInUser.username.charAt(0)}
                     
                     form(action=`/videos/${video.id}/comment` method=`POST` id="commentForm").video-detail__comment-section__comment-form
                         textarea(name="", cols="30", rows="10" placeholder=`댓글을 입력하세요.`)
