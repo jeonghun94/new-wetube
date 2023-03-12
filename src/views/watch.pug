@@ -4,7 +4,10 @@ block content
     
     .video-detail#videoController(data-id=video._id)
         .video-detail__video
-            video(src=`${video.fileUrl}`)
+            if isHeroku
+                video(src=`${video.fileUrl}`)
+            else
+                video(src=`/${video.fileUrl}`)
         include ./partials/videoPlayer.pug
 
         .video-detail__info    
