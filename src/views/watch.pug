@@ -4,7 +4,7 @@ block content
     
     .video-detail#videoController(data-id=video._id)
         .video-detail__video
-            video(src=`/${video.fileUrl}`)
+            video(src=`${video.fileUrl}`)
         include ./partials/videoPlayer.pug
 
         .video-detail__info    
@@ -20,7 +20,7 @@ block content
         .video-detail__user
             div 
                 if video.owner && video.owner.avatarUrl
-                    img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
+                    img(src=`${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
                 else
                     p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
             div
@@ -36,7 +36,7 @@ block content
                 .video-detail__comment-section__comment
                     .video-detail__comment-section__comment-avatar
                         if video.owner && video.owner.avatarUrl
-                            img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
+                            img(src=`${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
                         else
                             p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
                     

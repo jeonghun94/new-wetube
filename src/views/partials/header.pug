@@ -10,18 +10,17 @@ header.header
                         input.search-form__input(type="text" name="title" placeholder="검색" value=`${searchByTitle ? searchByTitle :""}` autofocus required)
                         button.search-form__button(type="submit")
                             i.fas.fa-search
-
             if loggedIn
                 .dropdown
                     if loggedInUser && loggedInUser.avatarUrl
-                        img(src=`/${loggedInUser.avatarUrl}` alt=`${loggedInUser.username}`)
+                        img(src=loggedInUser.avatarUrl alt=`${loggedInUser.username}`)
                     else
                         button(style=`background-color:${loggedInUser ? loggedInUser.colorCode :"red"}`).dropbtn #{loggedInUser.username.charAt(1)}
                     .dropdown-content
                         .profile 
                             .profile__img
                                 if loggedInUser && loggedInUser.avatarUrl
-                                    img(src=`/${loggedInUser.avatarUrl}` alt=`${loggedInUser.username}`)
+                                    img(src=`${loggedInUser.avatarUrl}` alt=`${loggedInUser.username}`)
                                 else
                                     p(style=`background-color:${loggedInUser ? loggedInUser.colorCode :"red"}`) #{loggedInUser.username.charAt(1)}
                             .profile__info

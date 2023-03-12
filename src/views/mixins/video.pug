@@ -3,11 +3,11 @@ mixin video(video)
         .video
             .video__img
                 if video.thumbUrl
-                    img(src=`/${video.thumbUrl}` alt=`${video.title}의 썸네일`)
+                    img(src=`${video.thumbUrl}` alt=`${video.title}의 썸네일`)
             .video-info
                 .video-info__user
                     if video.owner && video.owner.avatarUrl
-                        img(src=`/${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진`)
+                        img(src=`${video.owner.avatarUrl}` alt=`${video.owner.username}의 프로필 사진` )
                     else
                         p(style=`background-color:${video.owner && video.owner.colorCode ? video.owner.colorCode :"red"}`) #{video.owner && video.owner.username ? video.owner.username.charAt(0) : "A"}
                 .video-info__video
