@@ -15,11 +15,12 @@ block content
                 h1=video.title
                 h3 #{video.meta.views} #{video.meta.views === 1 ? "view" : "views"} &middot; #{video.createdAt.toLocaleDateString()}
             div 
-                if String(video.owner._id) === String(loggedInUser._id)
-                    a(href=`${video.id}/edit`) 
-                        i.fas.fa-edit
-                    a(href=`${video.id}/delete`) 
-                        i.fas.fa-trash
+                if loggedIn
+                    if String(video.owner._id) === String(loggedInUser._id)
+                        a(href=`${video.id}/edit`) 
+                            i.fas.fa-edit
+                        a(href=`${video.id}/delete`) 
+                            i.fas.fa-trash
         .video-detail__user
             div 
                 if video.owner && video.owner.avatarUrl
@@ -38,10 +39,10 @@ block content
             if loggedIn
                 .video-detail__comment-section__comment
                     .video-detail__comment-section__comment-avatar
-                        if loggedInUser.avatarUrl
+                        if loggedInUser && loggedInUser.avatarUrl
                             img(src=`${loggedInUser.avatarUrl}` alt=`${loggedInUser.avatarUrl}의 프로필 사진`)
                         else
-                            p(style=`background-color:${loggedInUser.colorCode}`) #{loggedInUser.username.charAt(0)}
+                            p(style=`background-color:${loggedInUser ? loggedInUser.colorCode :"red"}`) #{loggedInUser.username.charAt(0)}
                     
                     form(action=`/videos/${video.id}/comment` method=`POST` id="commentForm").video-detail__comment-section__comment-form
                         textarea(name="", cols="30", rows="10" placeholder=`댓글을 입력하세요.`)
