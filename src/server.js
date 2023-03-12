@@ -18,6 +18,8 @@ app.use((req, res, next) => {
   res.header("Cross-Origin-Opener-Policy", "same-origin");
   next();
 });
+
+console.log(process.env.GH_CLIENT);
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

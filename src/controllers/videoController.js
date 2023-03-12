@@ -1,7 +1,5 @@
 import Comment from "../models/Comment";
 import Video from "../models/Video";
-import User from "../models/User";
-import { async } from "regenerator-runtime";
 
 const getHashtags = async () => {
   const hashtags = [];

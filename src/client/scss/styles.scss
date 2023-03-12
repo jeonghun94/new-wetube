@@ -100,6 +100,15 @@ input[type="file"] {
   .github {
     margin-top: -5px;
     background-color: #232323 !important;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 15px;
+    border: 0;
+    font-size: 1rem;
+    text-align: center;
+
     i {
       padding-left: 10px;
     }
